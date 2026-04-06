@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prayer Corner - Pray to Xavier</title>
+    <style>
+        body {
+            background: #000080;
+            background: linear-gradient(to bottom, #000080, #0000FF);
+            font-family: "Times New Roman", Times, serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            background: #FFFFFF;
+            width: 800px;
+            margin: 0 auto;
+            border: 5px ridge #FFA500;
+            padding: 10px;
+        }
+        h1 {
+            font-family: "Comic Sans MS", cursive;
+            font-size: 48px;
+            text-align: center;
+            color: #FF0000;
+            text-shadow: 2px 2px #FFA500;
+            margin: 10px 0;
+        }
+        .marquee-container {
+            background: #00FF00;
+            border: 3px solid #000000;
+            padding: 5px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF00FF;
+            margin: 10px 0;
+        }
+        .content {
+            background: #FFFF00;
+            border: 2px dashed #000080;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .photo-frame {
+            text-align: center;
+            background: #FF00FF;
+            padding: 10px;
+            border: 5px groove #00FF00;
+            margin: 20px auto;
+            width: 400px;
+        }
+        .photo-frame img {
+            border: 3px solid #000000;
+            width: 100%;
+        }
+        .prayer-section {
+            background: #00FFFF;
+            border: 3px solid #FF00FF;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .prayer-input {
+            width: 90%;
+            height: 150px;
+            font-size: 18px;
+            font-family: "Times New Roman", Times, serif;
+            padding: 10px;
+            border: 3px solid #FFA500;
+            margin: 10px 0;
+        }
+        .pray-button {
+            font-size: 24px;
+            padding: 15px 30px;
+            cursor: pointer;
+            background: #FFA500;
+            border: 5px solid #FF0000;
+            border-radius: 15px;
+            font-weight: bold;
+            color: #000080;
+            margin: 10px;
+        }
+        .donate-button {
+            font-size: 24px;
+            padding: 15px 30px;
+            cursor: pointer;
+            background: #FFD700;
+            border: 5px solid #FF0000;
+            border-radius: 15px;
+            font-weight: bold;
+            color: #000080;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .prayer-response {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #FFFFFF;
+            border: 3px solid #FF0000;
+            font-size: 20px;
+            color: #000080;
+        }
+        .footer {
+            text-align: center;
+            background: #FFA500;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .blink {
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        a { color: #FF0000; }
+        .audio-controls {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <marquee scrollamount="8" scrolldelay="100">*** WELCOME TO THE PRAYER CORNER *** PRAY TO XAVIER *** MAY HIS BLESSINGS BE UPON YOU ***</marquee>
+        
+        <div style="text-align:center;margin:10px 0;">
+            <a href="index.html" style="font-size:18px;color:#FF0000;">🏠 home</a>
+        </div>
+        
+        <h1>🙏 PRAYER CORNER 🙏</h1>
+        
+        <div class="marquee-container">
+            <marquee>The Sacred Space of Xavier Lanham</marquee>
+        </div>
+        
+        <div class="content">
+            <p class="message" style="font-size:20px;text-align:center;color:#000080;line-height:1.6;">
+                <span class="blink">✝ ✝ ✝</span> 
+                Welcome, faithful one, to the Prayer Corner.
+                <span class="blink">✝ ✝ ✝</span>
+            </p>
+            <p class="message" style="font-size:18px;text-align:center;color:#000080;">
+                Here you may offer your prayers to Xavier, and donate, non optionally.
+            </p>
+            <div style="text-align:center;margin:15px 0;">
+                <button onclick="document.getElementById('gregorianChant').play()" style="cursor:pointer;padding:10px 20px;font-size:18px;background:#FFA500;border:3px solid #FF0000;border-radius:10px;">🔔 Begin Service</button>
+            </div>
+        </div>
+        
+        <div class="photo-frame">
+            <p style="text-align:center;color:#FFFFFF;font-weight:bold;font-size:20px;">The Almighty Xavier</p>
+            <img src="assets/god.png" alt="Xavier - The God">
+        </div>
+        
+        <div class="prayer-section">
+            <h3 style="color:#000080;font-size:28px;">💰 Support the Xavier Lanham Foundation 💰</h3>
+            <p style="font-size:18px;color:#000080;">Your generous donation helps spread Xavier's blessings to the world!</p>
+            <a href="https://hillsong.com/australia/give/" target="_blank" class="donate-button">💸 DONATE NOW 💸</a>
+        </div>
+        
+        <div class="content">
+            <p style="text-align:center;font-size:20px;color:#000080;">
+                <span class="blink">✝</span> May Xavier bless you <span class="blink">✝</span>
+            </p>
+        </div>
+        
+        <marquee scrollamount="5">*** Thanks for praying! Your prayers have been received! ***</marquee>
+    </div>
+    
+    <audio id="gregorianChant" preload="auto" loop>
+        <source src="https://upload.wikimedia.org/wikipedia/en/a/a5/Gradual_chant_-_Universi_qui_te_expectant.ogg" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        const prayers = [
+            "Xavier has heard your prayer! May blessings be upon you!",
+            "Your prayer has been received by the almighty Xavier!",
+            "Xavier is pleased with your devotion!",
+            "May Xavier grant your wishes!",
+            "Your faith is strong, faithful one!"
+        ];
+        
+        function sendPrayer() {
+            const prayerText = document.getElementById('prayerText').value;
+            const response = document.getElementById('prayerResponse');
+            const responseText = document.getElementById('responseText');
+            
+            if (prayerText.trim() === "") {
+                responseText.innerHTML = "<span style='color:red;'>Please write a prayer first!</span>";
+                response.style.display = "block";
+                return;
+            }
+            
+            const randomResponse = prayers[Math.floor(Math.random() * prayers.length)];
+            responseText.innerHTML = "<b>" + randomResponse + "</b><br><br>🙏";
+            response.style.display = "block";
+            
+            document.getElementById('prayerText').value = "";
+        }
+    </script>
+</body>
+</html>
