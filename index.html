@@ -123,6 +123,16 @@
         @keyframes blinker {
             50% { opacity: 0; }
         }
+        .sections-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .sections-grid .content,
+        .sections-grid .interactive-section {
+            margin: 0;
+        }
         a { color: #FF0000; }
     </style>
 </head>
@@ -131,10 +141,6 @@
         <marquee scrollamount="8" scrolldelay="100">*** HAPPY BIRTHDAY XAVIER LANHAM!!! *** HAVE AN AMAZING DAY!!! ***</marquee>
         
         <h1>HAPPY BIRTHDAY XAVIER!!!</h1>
-        
-        <div class="marquee-container">
-            <marquee>April 5th, 2026 - You're getting OLD! LOL!</marquee>
-        </div>
         
         <div class="content">
             <p class="message">
@@ -158,41 +164,58 @@
         </div>
         
         <div class="content">
+            <h3 style="text-align:center;color:#000080;">📬 Fanmail to Xavier 📬</h3>
+        </div>
+        
+        <div class="sections-grid">
+            <div class="content">
+                <h2 style="text-align:center;color:#000080;">🎓 Cultural Learnings 🎓</h2>
             <h3 style="text-align:center;color:#000080;">Did You Know What Xavier Is In Other Languages?</h3>
-            <ul style="list-style:none;text-align:center;line-height:2;">
-                <li>English: Xavier</li>
-                <li>Spanish: Xavier</li>
-                <li>French: Xavier</li>
-                <li>German: Xavier</li>
-                <li>Italian: Xavier</li>
-                <li>Portuguese: Xavier</li>
-                <li>Japanese: ザビエル (Zabieru)</li>
-                <li>Korean: 자비에르 (Jabiereu)</li>
-                <li>Russian: Ксавье (Ksav'ye)</li>
-                <li>Arabic: كزافييه</li>
-                <li>Chinese: 猪八蛋 (Zhūbādàn)</li>
-            </ul>
-        </div>
+            <table style="width:80%;margin:0 auto;text-align:center;border-collapse:collapse;border:2px solid #000080;">
+                <tr style="background:#00FFFF;"><th style="border:1px solid #000080;padding:8px;">Language</th><th style="border:1px solid #000080;padding:8px;">Translation</th></tr>
+                <tr><td style="border:1px solid #000080;">🇬🇧 English</td><td style="border:1px solid #000080;">Xavier</td></tr>
+                <tr style="background:#FFFF00;"><td style="border:1px solid #000080;">🇪🇸 Spanish</td><td style="border:1px solid #000080;">Xavier</td></tr>
+                <tr><td style="border:1px solid #000080;">🇫🇷 French</td><td style="border:1px solid #000080;">Xavier</td></tr>
+                <tr style="background:#FFFF00;"><td style="border:1px solid #000080;">🇩🇪 German</td><td style="border:1px solid #000080;">Xavier</td></tr>
+                <tr><td style="border:1px solid #000080;">🇮🇹 Italian</td><td style="border:1px solid #000080;">Xavier</td></tr>
+                <tr style="background:#FFFF00;"><td style="border:1px solid #000080;">🇵🇹 Portuguese</td><td style="border:1px solid #000080;">Xavier</td></tr>
+                <tr><td style="border:1px solid #000080;">🇯🇵 Japanese</td><td style="border:1px solid #000080;">ザビエル</td></tr>
+                <tr style="background:#FFFF00;"><td style="border:1px solid #000080;">🇰🇷 Korean</td><td style="border:1px solid #000080;">자비에르 (Jabiereu)</td></tr>
+                <tr><td style="border:1px solid #000080;">🇷🇺 Russian</td><td style="border:1px solid #000080;">Ксавье</td></tr>
+                <tr style="background:#FFFF00;"><td style="border:1px solid #000080;">🇸🇦 Arabic</td><td style="border:1px solid #000080;">كزافييه</td></tr>
+                <tr><td style="border:1px solid #000080;">🇨🇳 Chinese</td><td style="border:1px solid #000080;">猪八蛋</td></tr>
+            </table>
+            </div>
+            
+            <div class="interactive-section">
+                <h2 style="text-align:center;color:#000080;">Life 360</h2>
+                <button onclick="showLocation()" style="font-size:18px;padding:10px 20px;cursor:pointer;background:#FFA500;border:3px solid #FF0000;border-radius:10px;font-weight:bold;">🌍 CLICK TO SEE XAVIER'S LOCATION 🌍</button>
+                <div class="map-container" id="mapContainer">
+                    <img src="assets/the world.png" alt="World Map">
+                    <div class="map-pin" id="mapPin"></div>
+                </div>
+                <div class="location-result" id="locationResult">
+                    <p id="locationText"></p>
+                    <p id="busyBoy" style="font-size:24px;color:#FF0000;font-weight:bold;"></p>
+                </div>
+            </div>
+            
+            <div class="interactive-section">
+                <h2 style="text-align:center;color:#000080;">Fun facts</h2>
+                <div style="cursor:pointer;font-size:20px;color:#000080;" onclick="showFact()">👆 CLICK HERE 👆</div>
+                <div class="fact-result" id="factResult">
+                    <p id="factText" style="font-size:18px;"></p>
+                </div>
+            </div>
+            
+            <div class="content" style="text-align:center;">
+                <h2 style="text-align:center;color:#000080;">📹 Xavier Live Cam 📹</h2>
+                <div style="border:4px solid #FF0000;width:400px;height:300px;margin:10px auto;background:#000;">
+                    <img src="assets/xavier (cool).jpeg" alt="Xavier Live Cam" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <p style="color:#FF0000;font-weight:bold;">🔴 LIVE</p>
+            </div>
         
-        <div class="interactive-section">
-            <h3>Click To See Xavier's Location</h3>
-            <button onclick="showLocation()" style="font-size:18px;padding:10px 20px;cursor:pointer;background:#FFA500;border:3px solid #FF0000;border-radius:10px;font-weight:bold;">🌍 CLICK TO SEE XAVIER'S LOCATION 🌍</button>
-            <div class="map-container" id="mapContainer">
-                <img src="assets/the world.png" alt="World Map">
-                <div class="map-pin" id="mapPin"></div>
-            </div>
-            <div class="location-result" id="locationResult">
-                <p id="locationText"></p>
-                <p id="busyBoy" style="font-size:24px;color:#FF0000;font-weight:bold;"></p>
-            </div>
-        </div>
-        
-        <div class="interactive-section">
-            <h3>Click To See Random Fun Fact</h3>
-            <div style="cursor:pointer;font-size:20px;color:#000080;" onclick="showFact()">👆 CLICK HERE 👆</div>
-            <div class="fact-result" id="factResult">
-                <p id="factText" style="font-size:18px;"></p>
-            </div>
         </div>
         
         <marquee scrollamount="5">*** Thanks for visiting! Come back next year! ***</marquee>
@@ -204,16 +227,19 @@
     
     <script>
         const locations = [
-            { name: "The Catacombs", lat: 30, lon: 20 },
-            { name: "Blighttown", lat: 60, lon: 75 },
-            { name: "Sen's Fortress", lat: 45, lon: 30 },
-            { name: "The Depths", lat: 70, lon: 55 },
-            { name: "Lost Izalith", lat: 80, lon: 40 },
-            { name: "Tomb of the Giants", lat: 25, lon: 85 },
-            { name: "Crystal Cave", lat: 50, lon: 10 },
-            { name: "The Great Hollow", lat: 15, lon: 65 },
-            { name: "Demon Ruins", lat: 90, lon: 25 },
-            { name: "The Painted World", lat: 35, lon: 90 }
+            { name: "The Catacombs", lat: 30.12312, lon: 20.97 },
+            { name: "Blighttown", lat: 60.098, lon: 75.2 },
+            { name: "Sen's Fortress", lat: 4.09175, lon: 30.192 },
+            { name: "Bangalore, India", lat: 70.4312, lon: 55.69 },
+            { name: "Lost Izalith", lat: 80.3876, lon: 40.686 },
+            { name: "Tomb of the Giants", lat: 25.686, lon: 85.3876 },
+            { name: "Crystal Cave", lat: 50.686, lon: 10.3876 },
+            { name: "The Great Hollow", lat: 15.686, lon: 65.3876 },
+            { name: "Demon Ruins", lat: 90.3876, lon: 25.686 },
+            { name: "Deepdene", lat: 35.3876, lon: 90.686 },
+            { name: "Narre Warren", lat: 76.3876, lon: 99.686 },
+            { name: "Oort cloud", lat: 352222.3876, lon: 901242141242142124912041.686 },
+            { name: "猪八蛋, China", lat: 15.3876, lon: 70.686 }
         ];
         
         const facts = [
