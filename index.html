@@ -60,23 +60,35 @@
             margin: 10px 0;
             text-align: center;
         }
-        .globe {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, #4169E1 50%, #228B22 50%);
-            border-radius: 50%;
+        .map-container {
+            width: 400px;
+            height: 300px;
+            margin: 20px auto;
             border: 4px solid #FFD700;
-            margin: 10px auto;
-            cursor: pointer;
             position: relative;
+            overflow: hidden;
+            display: none;
         }
-        .globe::before {
-            content: '';
-            position: absolute;
+        .map-container img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.3);
+            object-fit: cover;
+        }
+        .map-pin {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url("assets/pin.jpg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: translateX(-50%) translateY(-100%);
+            display: none;
+            z-index: 10;
+        }
+        @keyframes dropPin {
+            0% { transform: translateX(-50%) translateY(-100px); opacity: 0; }
+            50% { transform: translateX(-50%) translateY(-20px); opacity: 1; }
+            100% { transform: translateX(-50%) translateY(0); }
         }
         .location-result {
             display: none;
@@ -164,7 +176,11 @@
         
         <div class="interactive-section">
             <h3>Click To See Xavier's Location</h3>
-            <div class="globe" onclick="showLocation()"></div>
+            <button onclick="showLocation()" style="font-size:18px;padding:10px 20px;cursor:pointer;background:#FFA500;border:3px solid #FF0000;border-radius:10px;font-weight:bold;">🌍 CLICK TO SEE XAVIER'S LOCATION 🌍</button>
+            <div class="map-container" id="mapContainer">
+                <img src="assets/the world.png" alt="World Map">
+                <div class="map-pin" id="mapPin"></div>
+            </div>
             <div class="location-result" id="locationResult">
                 <p id="locationText"></p>
                 <p id="busyBoy" style="font-size:24px;color:#FF0000;font-weight:bold;"></p>
@@ -199,26 +215,16 @@
     
     <script>
         const locations = [
-            { name: "Paris, France", lat: 48.8566, lon: 2.3522 },
-            { name: "Tokyo, Japan", lat: 35.6762, lon: 139.6503 },
-            { name: "New York City, USA", lat: 40.7128, lon: -74.0060 },
-            { name: "London, UK", lat: 51.5074, lon: -0.1278 },
-            { name: "Sydney, Australia", lat: -33.8688, lon: 151.2093 },
-            { name: "Cairo, Egypt", lat: 30.0444, lon: 31.2357 },
-            { name: "Rio de Janeiro, Brazil", lat: -22.9068, lon: -43.1729 },
-            { name: "Moscow, Russia", lat: 55.7558, lon: 37.6173 },
-            { name: "Beijing, China", lat: 39.9042, lon: 116.4074 },
-            { name: "Mumbai, India", lat: 19.0760, lon: 72.8777 },
-            { name: "Los Angeles, USA", lat: 34.0522, lon: -118.2437 },
-            { name: "Berlin, Germany", lat: 52.5200, lon: 13.4050 },
-            { name: "Toronto, Canada", lat: 43.6532, lon: -79.3832 },
-            { name: "Dubai, UAE", lat: 25.2048, lon: 55.2708 },
-            { name: "Singapore", lat: 1.3521, lon: 103.8198 },
-            { name: "Rome, Italy", lat: 41.9028, lon: 12.4964 },
-            { name: "Bangkok, Thailand", lat: 13.7563, lon: 100.5018 },
-            { name: "Istanbul, Turkey", lat: 41.0082, lon: 28.9784 },
-            { name: "Seoul, South Korea", lat: 37.5665, lon: 126.9780 },
-            { name: "Amsterdam, Netherlands", lat: 52.3676, lon: 4.9041 }
+            { name: "The Catacombs", lat: 30, lon: 20 },
+            { name: "Blighttown", lat: 60, lon: 75 },
+            { name: "Sen's Fortress", lat: 45, lon: 30 },
+            { name: "The Depths", lat: 70, lon: 55 },
+            { name: "Lost Izalith", lat: 80, lon: 40 },
+            { name: "Tomb of the Giants", lat: 25, lon: 85 },
+            { name: "Crystal Cave", lat: 50, lon: 10 },
+            { name: "The Great Hollow", lat: 15, lon: 65 },
+            { name: "Demon Ruins", lat: 90, lon: 25 },
+            { name: "The Painted World", lat: 35, lon: 90 }
         ];
         
         const facts = [
@@ -228,12 +234,31 @@
         ];
         
         function showLocation() {
-            const randomLoc = locations[Math.floor(Math.random() * locations.length)];
+            const container = document.getElementById('mapContainer');
+            const pin = document.getElementById('mapPin');
             const result = document.getElementById('locationResult');
             const text = document.getElementById('locationText');
             const busyBoy = document.getElementById('busyBoy');
             
-            text.innerHTML = "<b>📍 " + randomLoc.name + "</b><br>Coordinates: " + randomLoc.lat + ", " + randomLoc.lon;
+            const randomLoc = locations[Math.floor(Math.random() * locations.length)];
+            
+            container.style.display = 'block';
+            pin.style.display = 'none';
+            pin.style.animation = 'none';
+            
+            const mapWidth = 400;
+            const mapHeight = 300;
+            const x = (randomLoc.lon / 100) * mapWidth;
+            const y = (randomLoc.lat / 100) * mapHeight;
+            
+            pin.style.top = y + 'px';
+            pin.style.left = x + 'px';
+            
+            void pin.offsetWidth;
+            pin.style.display = 'block';
+            pin.style.animation = 'dropPin 1s ease-out forwards';
+            
+            text.innerHTML = "<b>📍 " + randomLoc.name + "</b><br>Lat: " + randomLoc.lat + ", Lon: " + randomLoc.lon;
             busyBoy.innerText = "What a busy boy!";
             result.style.display = "block";
         }
