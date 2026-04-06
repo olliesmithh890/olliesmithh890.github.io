@@ -53,6 +53,45 @@
             border: 3px solid #000000;
             width: 100%;
         }
+        .interactive-section {
+            background: #00FFFF;
+            border: 3px solid #FF00FF;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .globe {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #4169E1 50%, #228B22 50%);
+            border-radius: 50%;
+            border: 4px solid #FFD700;
+            margin: 10px auto;
+            cursor: pointer;
+            position: relative;
+        }
+        .globe::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .location-result {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #FFFFFF;
+            border: 2px solid #FF0000;
+        }
+        .fact-result {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #FFFFFF;
+            border: 2px solid #000080;
+        }
         .message {
             font-size: 18px;
             color: #000080;
@@ -107,6 +146,40 @@
         </div>
         
         <div class="content">
+            <h3 style="text-align:center;color:#000080;">Did You Know What Xavier Is In Other Languages?</h3>
+            <ul style="list-style:none;text-align:center;line-height:2;">
+                <li>English: Xavier</li>
+                <li>Spanish: Xavier</li>
+                <li>French: Xavier</li>
+                <li>German: Xavier</li>
+                <li>Italian: Xavier</li>
+                <li>Portuguese: Xavier</li>
+                <li>Japanese: ザビエル (Zabieru)</li>
+                <li>Korean: 자비에르 (Jabiereu)</li>
+                <li>Russian: Ксавье (Ksav'ye)</li>
+                <li>Arabic: كزافييه</li>
+                <li>Chinese: 猪八蛋 (Zhūbādàn)</li>
+            </ul>
+        </div>
+        
+        <div class="interactive-section">
+            <h3>Click To See Xavier's Location</h3>
+            <div class="globe" onclick="showLocation()"></div>
+            <div class="location-result" id="locationResult">
+                <p id="locationText"></p>
+                <p id="busyBoy" style="font-size:24px;color:#FF0000;font-weight:bold;"></p>
+            </div>
+        </div>
+        
+        <div class="interactive-section">
+            <h3>Click To See Random Fun Fact</h3>
+            <div style="cursor:pointer;font-size:20px;color:#000080;" onclick="showFact()">👆 CLICK HERE 👆</div>
+            <div class="fact-result" id="factResult">
+                <p id="factText" style="font-size:18px;"></p>
+            </div>
+        </div>
+        
+        <div class="content">
             <p style="text-align:center;font-size:20px;color:#FF0000;">
                 <b>FROM YOUR PAL OLLIE!!!</b>
             </p>
@@ -123,5 +196,56 @@
         
         <marquee scrollamount="5">*** Thanks for visiting! Come back next year! ***</marquee>
     </div>
+    
+    <script>
+        const locations = [
+            { name: "Paris, France", lat: 48.8566, lon: 2.3522 },
+            { name: "Tokyo, Japan", lat: 35.6762, lon: 139.6503 },
+            { name: "New York City, USA", lat: 40.7128, lon: -74.0060 },
+            { name: "London, UK", lat: 51.5074, lon: -0.1278 },
+            { name: "Sydney, Australia", lat: -33.8688, lon: 151.2093 },
+            { name: "Cairo, Egypt", lat: 30.0444, lon: 31.2357 },
+            { name: "Rio de Janeiro, Brazil", lat: -22.9068, lon: -43.1729 },
+            { name: "Moscow, Russia", lat: 55.7558, lon: 37.6173 },
+            { name: "Beijing, China", lat: 39.9042, lon: 116.4074 },
+            { name: "Mumbai, India", lat: 19.0760, lon: 72.8777 },
+            { name: "Los Angeles, USA", lat: 34.0522, lon: -118.2437 },
+            { name: "Berlin, Germany", lat: 52.5200, lon: 13.4050 },
+            { name: "Toronto, Canada", lat: 43.6532, lon: -79.3832 },
+            { name: "Dubai, UAE", lat: 25.2048, lon: 55.2708 },
+            { name: "Singapore", lat: 1.3521, lon: 103.8198 },
+            { name: "Rome, Italy", lat: 41.9028, lon: 12.4964 },
+            { name: "Bangkok, Thailand", lat: 13.7563, lon: 100.5018 },
+            { name: "Istanbul, Turkey", lat: 41.0082, lon: 28.9784 },
+            { name: "Seoul, South Korea", lat: 37.5665, lon: 126.9780 },
+            { name: "Amsterdam, Netherlands", lat: 52.3676, lon: 4.9041 }
+        ];
+        
+        const facts = [
+            "Xavier is known for his love of cats! 🐱",
+            "Xavier Lanham is mentioned 0 times in the Epstein files.",
+            "He's just Lanham."
+        ];
+        
+        function showLocation() {
+            const randomLoc = locations[Math.floor(Math.random() * locations.length)];
+            const result = document.getElementById('locationResult');
+            const text = document.getElementById('locationText');
+            const busyBoy = document.getElementById('busyBoy');
+            
+            text.innerHTML = "<b>📍 " + randomLoc.name + "</b><br>Coordinates: " + randomLoc.lat + ", " + randomLoc.lon;
+            busyBoy.innerText = "What a busy boy!";
+            result.style.display = "block";
+        }
+        
+        function showFact() {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            const result = document.getElementById('factResult');
+            const text = document.getElementById('factText');
+            
+            text.innerText = randomFact;
+            result.style.display = "block";
+        }
+    </script>
 </body>
 </html>
