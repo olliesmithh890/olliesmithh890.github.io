@@ -283,8 +283,7 @@
         }
         
         function playVideo(btn, src, ext) {
-            const mimeType = ext === 'mov' ? 'video/quicktime' : 'video/' + ext;
-            btn.innerHTML = '<video controls playsinline style="width:100%;max-width:300px;border:3px ridge #FFA500;"><source src="' + src + '" type="' + mimeType + '"></video>';
+            btn.innerHTML = '<div style="width:100%;max-width:300px;"><video width="100%" height="auto" controls playsinline webkit-playsinline preload="auto"><source src="' + src + '" type="video/mp4">Your browser does not support the video tag.</video></div>';
         }
         displayFanArt();
         
