@@ -19,12 +19,18 @@
             padding: 10px;
         }
         h1 {
-            font-family: "Comic Sans MS", cursive;
+            font-family: "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive;
             font-size: 48px;
             text-align: center;
             color: #DC143C;
             text-shadow: 3px 3px #FFD700;
             margin: 10px 0;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+                text-shadow: 2px 2px #FFD700;
+            }
         }
         h2, h3 {
             color: #191970;
@@ -163,15 +169,6 @@
             </p>
         </div>
         
-        <div class="content">
-            <h3 style="text-align:center;color:#000080;">🌐 Network with Xavier 🌐</h3>
-            <p style="text-align:center;font-size:18px;">
-                📷 Instagram: <a href="https://instagram.com/xav.lan" target="_blank">@xav.lan</a><br>
-                👻 Snapchat: xav.lan<br>
-                🎵 Spotify: <a href="https://open.spotify.com/artist/2i0dKRqDD4v12lpkXa6uqB?si=_tPfltULSey8rwIT9bdq8w" target="_blank">Two Babies Were Named</a>
-            </p>
-        </div>
-        
         <div class="photo-frame">
             <p style="text-align:center;color:#FFFFFF;font-weight:bold;">Here's to You!</p>
             <img src="assets/xavier (cool).jpeg" alt="Xavier Lanham">
@@ -233,7 +230,17 @@
         
         </div>
         
-        <marquee scrollamount="5">*** Thanks for visiting! Come back next year! ***</marquee>
+        <marquee scrollamount="5">*** Thanks for visiting! ***</marquee>
+        
+        <div class="content">
+            <h3 style="text-align:center;color:#000080;">🌐 Network with Xavier 🌐</h3>
+            <p style="text-align:center;font-size:18px;">
+                📷 Instagram: <a href="https://instagram.com/xav.lan" target="_blank">@xav.lan</a><br>
+                👻 Snapchat: xav.lan<br>
+                🎵 Spotify: <a href="https://open.spotify.com/artist/2i0dKRqDD4v12lpkXa6uqB?si=_tPfltULSey8rwIT9bdq8w" target="_blank">Two Babies Were Named</a><br>
+                📺 YouTube: <a href="https://www.youtube.com/@caplapaloni" target="_blank">@caplapaloni</a>
+            </p>
+        </div>
         
         <div class="content" style="text-align:center;margin-top:20px;">
             <a href="prayer-corner.html" style="font-size:24px;color:#FF0000;font-weight:bold;">🙏 Visit the Prayer Corner 🙏</a>
@@ -277,7 +284,7 @@
         
         function playVideo(btn, src, ext) {
             const mimeType = ext === 'mov' ? 'video/quicktime' : 'video/' + ext;
-            btn.innerHTML = '<video controls preload="metadata" style="max-width:300px;border:3px ridge #FFA500;"><source src="' + src + '" type="' + mimeType + '"></video>';
+            btn.innerHTML = '<video controls playsinline style="width:100%;max-width:300px;border:3px ridge #FFA500;"><source src="' + src + '" type="' + mimeType + '"></video>';
         }
         displayFanArt();
         
