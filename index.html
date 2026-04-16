@@ -22,40 +22,51 @@
             font-family: "Comic Sans MS", cursive;
             font-size: 48px;
             text-align: center;
-            color: #FF0000;
-            text-shadow: 2px 2px #FFA500;
+            color: #DC143C;
+            text-shadow: 3px 3px #FFD700;
             margin: 10px 0;
         }
+        h2, h3 {
+            color: #191970;
+            text-shadow: 1px 1px #4169E1;
+            margin: 15px 0;
+        }
+        h2 { font-size: 28px; }
+        h3 { font-size: 22px; }
         .marquee-container {
-            background: #00FF00;
-            border: 3px solid #000000;
-            padding: 5px;
-            font-size: 24px;
+            background: #228B22;
+            border: 3px solid #FFD700;
+            padding: 8px;
+            font-size: 20px;
             font-weight: bold;
-            color: #FF00FF;
+            color: #FFF;
             margin: 10px 0;
         }
         .content {
-            background: #FFFF00;
-            border: 2px dashed #000080;
+            background: #FFFACD;
+            border: 2px solid #4169E1;
+            border-radius: 10px;
             padding: 15px;
             margin: 10px 0;
         }
         .photo-frame {
             text-align: center;
-            background: #FF00FF;
-            padding: 10px;
-            border: 5px groove #00FF00;
+            background: #E6E6FA;
+            padding: 15px;
+            border: 5px solid #6A5ACD;
+            border-radius: 15px;
             margin: 20px auto;
             width: 400px;
         }
         .photo-frame img {
-            border: 3px solid #000000;
+            border: 3px solid #483D8B;
+            border-radius: 5px;
             width: 100%;
         }
         .interactive-section {
-            background: #00FFFF;
-            border: 3px solid #FF00FF;
+            background: #E0FFFF;
+            border: 3px solid #20B2AA;
+            border-radius: 10px;
             padding: 15px;
             margin: 10px 0;
             text-align: center;
@@ -112,10 +123,11 @@
         }
         .footer {
             text-align: center;
-            background: #FFA500;
-            padding: 10px;
+            background: #DDA0DD;
+            padding: 12px;
             margin-top: 20px;
             font-size: 14px;
+            border-radius: 5px;
         }
         .blink {
             animation: blinker 1s linear infinite;
@@ -144,17 +156,19 @@
         
         <div class="content">
             <p class="message">
-                <span class="blink">★ ★ ★</span> 
-                Hey Xavier! 
-                <span class="blink">★ ★ ★</span>
+                You are a beautiful bouncing boy full of love and beauty and diabolical stew 🥣
             </p>
-            <p class="message">
-                Wishing you the most awesome birthday ever! 
-                Hope you have a great day filled with lots of fun, food, and friends!
+            <p style="text-align:center;color:#FF0000;font-weight:bold;">
+                💡 Make sure to explore every feature of Xavier's website! 💡
             </p>
-            <p class="message">
-                You're one of the coolest friends ever! 
-                Have a fantastic day! 🎉🎂🎁
+        </div>
+        
+        <div class="content">
+            <h3 style="text-align:center;color:#000080;">🌐 Network with Xavier 🌐</h3>
+            <p style="text-align:center;font-size:18px;">
+                📷 Instagram: <a href="https://instagram.com/xav.lan" target="_blank">@xav.lan</a><br>
+                👻 Snapchat: xav.lan<br>
+                🎵 Spotify: <a href="https://open.spotify.com/artist/2i0dKRqDD4v12lpkXa6uqB?si=_tPfltULSey8rwIT9bdq8w" target="_blank">Two Babies Were Named</a>
             </p>
         </div>
         
@@ -163,8 +177,9 @@
             <img src="assets/xavier (cool).jpeg" alt="Xavier Lanham">
         </div>
         
-        <div class="content">
-            <h3 style="text-align:center;color:#000080;">📬 Fanmail to Xavier 📬</h3>
+        <div class="content" id="fanArt">
+            <h3 style="text-align:center;color:#000080;font-size:22px;">🎨 Fan Art & Videos 🎨</h3>
+            <div id="fanArtGrid" style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;"></div>
         </div>
         
         <div class="sections-grid">
@@ -188,8 +203,8 @@
             </div>
             
             <div class="interactive-section">
-                <h2 style="text-align:center;color:#000080;">Life 360</h2>
-                <button onclick="showLocation()" style="font-size:18px;padding:10px 20px;cursor:pointer;background:#FFA500;border:3px solid #FF0000;border-radius:10px;font-weight:bold;">🌍 CLICK TO SEE XAVIER'S LOCATION 🌍</button>
+                <h2 style="text-align:center;color:#000080;">🌍 Life 360 🌍</h2>
+                <button id="locationBtn" onclick="showLocation()" style="font-size:18px;padding:10px 20px;cursor:pointer;background:#FFA500;border:3px solid #FF0000;border-radius:10px;font-weight:bold;">👆 CLICK TO SEE XAVIER'S LOCATION</button>
                 <div class="map-container" id="mapContainer">
                     <img src="assets/the world.png" alt="World Map">
                     <div class="map-pin" id="mapPin"></div>
@@ -209,11 +224,11 @@
             </div>
             
             <div class="content" style="text-align:center;">
-                <h2 style="text-align:center;color:#000080;">📹 Xavier Live Cam 📹</h2>
+                <h2 style="text-align:center;color:#000080;">🎥 Xavier Live POV 🎥</h2>
                 <div style="border:4px solid #FF0000;width:400px;height:300px;margin:10px auto;background:#000;">
-                    <img src="assets/xavier (cool).jpeg" alt="Xavier Live Cam" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="assets/LIVE CAM.gif" alt="Xavier Live POV" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.parentElement.innerHTML='<p style;color:#FFF;text-align:center;padding-top:130px;'>Image failed to load</p>';">
                 </div>
-                <p style="color:#FF0000;font-weight:bold;">🔴 LIVE</p>
+                <p style="color:#FF0000;font-weight:bold;">🔴 LIVE CAM</p>
             </div>
         
         </div>
@@ -226,6 +241,46 @@
     </div>
     
     <script>
+        const fanArtFiles = [
+            { name: "Ethan.jpg", artist: "Ethan" },
+            { name: "Kalani.jpg", artist: "Kalani" },
+            { name: "Nathan.mp4", artist: "Nathan" },
+            { name: "Tarrin.jpg", artist: "Tarrin" },
+            { name: "Charlotte.mp4", artist: "Charlotte" },
+            { name: "Sam.jpg", artist: "Sam" },
+            { name: "Charlie.mp4", artist: "Charlie" }
+        ];
+        
+        function displayFanArt() {
+            const grid = document.getElementById('fanArtGrid');
+            const videoFiles = [];
+            fanArtFiles.forEach(file => {
+                const ext = file.name.split('.').pop().toLowerCase();
+                let mediaHtml = '';
+                if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
+                    const imgSrc = 'assets/fan art/' + file.name;
+                    mediaHtml = '<img loading="lazy" src="' + imgSrc + '" alt="' + file.artist + '" style="max-width:250px;max-height:200px;object-fit:contain;border:3px ridge #FFA500;">';
+                    grid.innerHTML += '<div style="text-align:center;"><p style="color:#000080;font-weight:bold;margin:5px 0;">by ' + file.artist + '</p>' + mediaHtml + '</div>';
+                } else if (['mp4', 'webm', 'mov'].includes(ext)) {
+                    videoFiles.push({name: file.name, artist: file.artist, ext: ext});
+                }
+            });
+            if (videoFiles.length > 0) {
+                let videoHtml = '<div style="display:flex;flex-wrap:wrap;gap:15px;justify-content:center;">';
+                videoFiles.forEach(v => {
+                    const videoSrc = 'assets/fan art/' + v.name;
+                    videoHtml += '<div style="text-align:center;"><p style="color:#000080;font-weight:bold;margin:5px 0;">by ' + v.artist + '</p><button onclick="playVideo(this, \'' + videoSrc + '\', \'' + v.ext + '\')" style="padding:10px 20px;cursor:pointer;background:#4169E1;color:#FFF;border:none;border-radius:5px;font-weight:bold;">▶ Play ' + v.artist + '</button></div>';
+                });
+                grid.innerHTML += videoHtml + '</div>';
+            }
+        }
+        
+        function playVideo(btn, src, ext) {
+            const mimeType = ext === 'mov' ? 'video/quicktime' : 'video/' + ext;
+            btn.innerHTML = '<video controls preload="metadata" style="max-width:300px;border:3px ridge #FFA500;"><source src="' + src + '" type="' + mimeType + '"></video>';
+        }
+        displayFanArt();
+        
         const locations = [
             { name: "The Catacombs", lat: 30.12312, lon: 20.97 },
             { name: "Blighttown", lat: 60.098, lon: 75.2 },
@@ -243,12 +298,19 @@
         ];
         
         const facts = [
-            "Xavier is known for his love of cats! 🐱",
-            "Xavier Lanham is mentioned 0 times in the Epstein files.",
-            "He's just Lanham."
+            "Xavier's favourite colour is yellow!",
+            "Xavier was born via C-section",
+            "Xavier was once part of a professional TF2 Team, subbing in as Demoman and leading the team to a devastating loss",
+            "Xavier's middle name is Matthew",
+            "Xavier has a big smile! 😊"
         ];
         
         function showLocation() {
+            const btn = document.getElementById('locationBtn');
+            if (!btn.innerText.includes("Wait he's moved")) {
+                btn.innerText = "👆 Wait he's moved";
+            }
+            
             const container = document.getElementById('mapContainer');
             const pin = document.getElementById('mapPin');
             const result = document.getElementById('locationResult');
